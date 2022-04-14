@@ -7,9 +7,6 @@
     <ClInclude Include="pch.h">
       <Filter>Defualt</Filter>
     </ClInclude>
-    <ClInclude Include="CCore.h">
-      <Filter>Engine\02.Core</Filter>
-    </ClInclude>
     <ClInclude Include="global.h">
       <Filter>Engine\01.Header</Filter>
     </ClInclude>
@@ -31,6 +28,12 @@
     <ClInclude Include="singleton.h">
       <Filter>Engine\03.Manager</Filter>
     </ClInclude>
+    <ClInclude Include="CCore.h">
+      <Filter>Engine\02.Core</Filter>
+    </ClInclude>
+    <ClInclude Include="CDevice.h">
+      <Filter>Engine\02.Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -40,6 +43,9 @@
       <Filter>Defualt</Filter>
     </ClCompile>
     <ClCompile Include="CCore.cpp">
+      <Filter>Engine\02.Core</Filter>
+    </ClCompile>
+    <ClCompile Include="CDevice.cpp">
       <Filter>Engine\02.Core</Filter>
     </ClCompile>
   </ItemGroup>

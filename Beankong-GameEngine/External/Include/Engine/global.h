@@ -1,6 +1,4 @@
 #pragma once
-
-
 #include <wrl/client.h>
 using namespace Microsoft::WRL;
 
@@ -41,6 +39,4 @@ using std::wstring;
 #include "struct.h"
 #include "extern.h"
 #include "func.h"
-//#include "singleton.h"
-
-#pragma once
+#include "singleton.h"
