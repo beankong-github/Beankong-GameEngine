@@ -32,7 +32,7 @@
       <Filter>Engine\02.Core</Filter>
     </ClInclude>
     <ClInclude Include="CDevice.h">
-      <Filter>Engine\02.Core</Filter>
+      <Filter>Engine\03.Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -46,7 +46,7 @@
       <Filter>Engine\02.Core</Filter>
     </ClCompile>
     <ClCompile Include="CDevice.cpp">
-      <Filter>Engine\02.Core</Filter>
+      <Filter>Engine\03.Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

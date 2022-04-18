@@ -25,13 +25,13 @@ private:
     D3D11_VIEWPORT					m_tViewPort;
     DXGI_SWAP_CHAIN_DESC			m_tSwapChainDesc;
 
-    //ComPtr<ID3D11RasterizerState>	m_arrRS[(UINT)RS_TYPE::END];
-    //ComPtr<ID3D11DepthStencilState> m_arrDS[(UINT)DS_TYPE::END];
+    ComPtr<ID3D11RasterizerState>	m_arrRS[(UINT)RS_TYPE::END];
+    ComPtr<ID3D11DepthStencilState> m_arrDS[(UINT)DS_TYPE::END];
+    ComPtr<ID3D11BlendState>        m_arrBS[(UINT)BS_TYPE::END];
 
+    CConstBuffer* m_arrCB[(UINT)CB_TYPE::END];
 
-    //CConstBuffer* m_arrCB[(UINT)CB_TYPE::END];
-
-    //ComPtr<ID3D11SamplerState>		m_arrSam[2];
+    ComPtr<ID3D11SamplerState>		m_arrSam[2];
 
 
 public:
@@ -45,9 +45,9 @@ public:
     ComPtr<ID3D11Device> GetDevice() { return m_pDevice; }
     ComPtr<ID3D11DeviceContext> GetDeviceContext() { return m_pDeviceContext; }
 
-    //ComPtr<ID3D11RasterizerState> GetRS(RS_TYPE _eType) { return m_arrRS[(UINT)_eType]; }
-    //ComPtr<ID3D11DepthStencilState> GetDS(DS_TYPE _eType) { return m_arrDS[(UINT)_eType]; }
-    //CConstBuffer* GetCB(CB_TYPE _eType) { return m_arrCB[(UINT)_eType]; }
+    ComPtr<ID3D11RasterizerState> GetRS(RS_TYPE _eType) { return m_arrRS[(UINT)_eType]; }
+    ComPtr<ID3D11DepthStencilState> GetDS(DS_TYPE _eType) { return m_arrDS[(UINT)_eType]; }
+    CConstBuffer* GetCB(CB_TYPE _eType) { return m_arrCB[(UINT)_eType]; }
 
 private:
     int CreateSwapchain();
@@ -56,5 +56,6 @@ private:
     int CreateDepthStencilState();
     int CreateConstBuffer();
     void CreateSamplerState();
+    int CreateBlendState();
 };
 
