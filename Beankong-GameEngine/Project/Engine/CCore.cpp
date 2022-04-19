@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "CCore.h"
 
+#include "CDevice.h"
+#include "PathMgr.h"
+
 int CCore::init(HWND _hWnd, POINT _ptResolution)
 {
 	// 윈도우 크기 설정
@@ -17,6 +20,15 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 		return E_FAIL;
 	}
 
+
+	PathMgr::GetInst()->init();
+	//CKeyMgr::GetInst()->init();
+	//CTimeMgr::GetInst()->init();
+	//CResMgr::GetInst()->init();
+	//CSceneMgr::GetInst()->init();
+
+
+	return S_OK;
 
 	return 0;
 }
