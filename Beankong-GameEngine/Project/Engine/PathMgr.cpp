@@ -27,4 +27,5 @@ void PathMgr::init()
 	}
 	// content 폴더 경로를 붙인다.
 	wcscat_s(m_strContentPath, L"\\bin\\content\\");
+
 }
