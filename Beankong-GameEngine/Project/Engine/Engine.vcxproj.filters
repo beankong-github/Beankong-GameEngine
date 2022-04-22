@@ -40,6 +40,9 @@
     <ClInclude Include="TimeMgr.h">
       <Filter>Engine\03.Manager\03.TimeMgr</Filter>
     </ClInclude>
+    <ClInclude Include="KeyMgr.h">
+      <Filter>Engine\03.Manager\04.KeyMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -59,6 +62,9 @@
     </ClCompile>
     <ClCompile Include="TimeMgr.cpp">
       <Filter>Engine\03.Manager\03.TimeMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyMgr.cpp">
+      <Filter>Engine\03.Manager\04.KeyMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
