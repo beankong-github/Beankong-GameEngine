@@ -4,7 +4,7 @@
 class CConstBuffer;
 
 class CDevice :
-    public CSingleton<CDevice>
+    public Singleton<CDevice>
 {
     SINGLE(CDevice);
 

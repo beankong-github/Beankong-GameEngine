@@ -1,8 +1,6 @@
 #include "pch.h"
 #include "PathMgr.h"
 
-
-
 PathMgr::PathMgr()
 	: m_strContentPath{}
 {}

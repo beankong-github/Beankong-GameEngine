@@ -2,7 +2,7 @@
 #include "singleton.h"
 
 class CCore :
-    public CSingleton<CCore>
+    public Singleton<CCore>
 {
 	SINGLE(CCore);
 

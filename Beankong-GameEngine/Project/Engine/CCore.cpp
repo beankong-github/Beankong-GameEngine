@@ -3,6 +3,7 @@
 
 #include "CDevice.h"
 #include "PathMgr.h"
+#include "TimeMgr.h"
 
 int CCore::init(HWND _hWnd, POINT _ptResolution)
 {
@@ -23,18 +24,19 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 
 	PathMgr::GetInst()->init();
 	//CKeyMgr::GetInst()->init();
-	//CTimeMgr::GetInst()->init();
+	TimeMgr::GetInst()->init();
 	//CResMgr::GetInst()->init();
 	//CSceneMgr::GetInst()->init();
 
 
 	return S_OK;
 
-	return 0;
 }
 
 void CCore::progress()
 {
+	/* Manager Update */
+	TimeMgr::GetInst()->update();
 }
 
 CCore::CCore()

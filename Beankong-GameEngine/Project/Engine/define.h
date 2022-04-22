@@ -1,6 +1,6 @@
 #pragma once
 
-#define SINGLE(TYPE) friend class CSingleton<TYPE>;\
+#define SINGLE(TYPE) friend class Singleton<TYPE>;\
 					 private:\
 						TYPE();\
 						~TYPE();

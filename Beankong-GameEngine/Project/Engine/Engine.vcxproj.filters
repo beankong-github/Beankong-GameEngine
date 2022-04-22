@@ -37,6 +37,9 @@
     <ClInclude Include="PathMgr.h">
       <Filter>Engine\03.Manager\05.PathMgr</Filter>
     </ClInclude>
+    <ClInclude Include="TimeMgr.h">
+      <Filter>Engine\03.Manager\03.TimeMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -53,6 +56,9 @@
     </ClCompile>
     <ClCompile Include="PathMgr.cpp">
       <Filter>Engine\03.Manager\05.PathMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeMgr.cpp">
+      <Filter>Engine\03.Manager\03.TimeMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

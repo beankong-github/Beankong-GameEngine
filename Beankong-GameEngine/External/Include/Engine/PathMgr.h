@@ -2,7 +2,7 @@
 #include "singleton.h"
 
 class PathMgr :
-    public CSingleton<PathMgr>
+    public Singleton<PathMgr>
 {
     SINGLE(PathMgr)
 
@@ -15,7 +15,6 @@ public:
 
 public:
 	const wchar_t* GetContentPath() { return m_strContentPath; }
-
 
 };
 

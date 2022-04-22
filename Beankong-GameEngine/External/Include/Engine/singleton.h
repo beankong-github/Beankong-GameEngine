@@ -1,7 +1,7 @@
 #pragma once
 
 template<typename T>
-class CSingleton
+class Singleton
 {
 	typedef void(*DESTORY)(void);
 
@@ -29,13 +29,13 @@ public:
 	}
 
 public:
-	CSingleton()
+	Singleton()
 	{
 		// atexit: 프로그램이 종료될 때 호출될 함수를 등록한다.
-		atexit((DESTORY)CSingleton<T>::Destroy);
+		atexit((DESTORY)Singleton<T>::Destroy);
 	}
 
-	virtual ~CSingleton()
+	virtual ~Singleton()
 	{
 
 	}
@@ -43,4 +43,4 @@ public:
 
 // instance 초기화
 template<typename T>
-T* CSingleton<T>::m_Inst = nullptr;
+T* Singleton<T>::m_Inst = nullptr;

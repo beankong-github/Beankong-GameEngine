@@ -93,7 +93,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_BEANKONGGAMEENGINE));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_BEANKONGGAMEENGINE);
+    wcex.lpszMenuName = 0; //MAKEINTRESOURCEW(IDC_BEANKONGGAMEENGINE);
     wcex.lpszClassName  = L"BK-Engine";
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
