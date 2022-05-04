@@ -5,6 +5,7 @@
 #include "PathMgr.h"
 #include "KeyMgr.h"
 #include "TimeMgr.h"
+#include "ResMgr.h"
 
 
 CCore::CCore()
@@ -34,7 +35,7 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 	PathMgr::GetInst()->init();
 	TimeMgr::GetInst()->init();
 	KeyMgr::GetInst()->init();
-	//CResMgr::GetInst()->init();
+	CResMgr::GetInst()->init();
 	//CSceneMgr::GetInst()->init();
 
 

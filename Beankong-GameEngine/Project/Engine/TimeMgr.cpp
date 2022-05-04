@@ -9,8 +9,11 @@ TimeMgr::TimeMgr()
 	, m_liPrevCount()
 	, m_iFPS(0)
 	, m_fDT(0.f)
+	, m_fFixedDT(0.f)
+	, m_fTimeScale(1.f)
 	, m_fAddTime(0.f)
 	, m_fCurTime(0.f)
+	, m_bPause(false)
 {}
 
 TimeMgr::~TimeMgr()
@@ -33,6 +36,9 @@ void TimeMgr::update()
 
 	// 이전 카운팅과 현재 카운팅 값의 차이를 초당 카운팅 수로 나눠 1프레임이 샐행되는 동안 걸린 시간(DeltaTime)을 구한다
 	m_fDT = (float)(m_liCurCount.QuadPart - m_liPrevCount.QuadPart) / (float)m_liFrequency.QuadPart;
+	
+	// 시간의 속도 조절
+	m_fFixedDT = m_fDT * m_fTimeScale;
 
 #ifdef _DEBUG
 	// 디버그 모드에서는 강제로 최소 60FPS를 확보해둔다.

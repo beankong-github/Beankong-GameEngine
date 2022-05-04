@@ -43,6 +43,9 @@
     <ClInclude Include="KeyMgr.h">
       <Filter>Engine\03.Manager\04.KeyMgr</Filter>
     </ClInclude>
+    <ClInclude Include="ResMgr.h">
+      <Filter>Engine\03.Manager\06.ResMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -65,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="KeyMgr.cpp">
       <Filter>Engine\03.Manager\04.KeyMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="ResMgr.cpp">
+      <Filter>Engine\03.Manager\06.ResMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
