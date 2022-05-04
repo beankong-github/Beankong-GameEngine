@@ -46,6 +46,7 @@
     <ClInclude Include="ResMgr.h">
       <Filter>Engine\03.Manager\06.ResMgr</Filter>
     </ClInclude>
+    <ClInclude Include="CEntity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -72,6 +73,7 @@
     <ClCompile Include="ResMgr.cpp">
       <Filter>Engine\03.Manager\06.ResMgr</Filter>
     </ClCompile>
+    <ClCompile Include="CEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Defualt">
