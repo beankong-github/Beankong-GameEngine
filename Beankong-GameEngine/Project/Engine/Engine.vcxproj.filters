@@ -53,6 +53,16 @@
     <ClInclude Include="Ptr.h">
       <Filter>Engine\07.Resource</Filter>
     </ClInclude>
+    <ClInclude Include="SceneMgr.h">
+      <Filter>Engine\03.Manager\07.SceneMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CScene.h">
+      <Filter>Engine\06.Scene\01.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CLayer.h">
+      <Filter>Engine\06.Scene\02.Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="CGameObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -83,6 +93,16 @@
     <ClCompile Include="CResource.cpp">
       <Filter>Engine\07.Resource</Filter>
     </ClCompile>
+    <ClCompile Include="SceneMgr.cpp">
+      <Filter>Engine\03.Manager\07.SceneMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene.cpp">
+      <Filter>Engine\06.Scene\01.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CLayer.cpp">
+      <Filter>Engine\06.Scene\02.Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="CGameObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Defualt">
@@ -145,10 +165,17 @@
     <Filter Include="Engine\03.Manager\06.CollisionMgr">
       <UniqueIdentifier>{40fb3e65-49f7-48e6-9349-664923bd4e5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\06.Scene\01.Scene">
+      <UniqueIdentifier>{b8249ecd-5b28-4e3c-be3c-5fa0cd49ace4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\06.Scene\02.Layer">
+      <UniqueIdentifier>{7fc1279c-8ddc-42f8-a017-f71057d15ead}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleMath.inl">
       <Filter>Engine\Module</Filter>
     </None>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

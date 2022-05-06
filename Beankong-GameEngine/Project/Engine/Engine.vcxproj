@@ -165,7 +165,10 @@ call EngineCopy.bat</Command>
     <ClInclude Include="CCore.h" />
     <ClInclude Include="CDevice.h" />
     <ClInclude Include="CEntity.h" />
+    <ClInclude Include="CGameObject.h" />
+    <ClInclude Include="CLayer.h" />
     <ClInclude Include="CResource.h" />
+    <ClInclude Include="CScene.h" />
     <ClInclude Include="define.h" />
     <ClInclude Include="extern.h" />
     <ClInclude Include="framework.h" />
@@ -176,6 +179,7 @@ call EngineCopy.bat</Command>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Ptr.h" />
     <ClInclude Include="ResMgr.h" />
+    <ClInclude Include="SceneMgr.h" />
     <ClInclude Include="SimpleMath.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="struct.h" />
@@ -185,7 +189,10 @@ call EngineCopy.bat</Command>
     <ClCompile Include="CCore.cpp" />
     <ClCompile Include="CDevice.cpp" />
     <ClCompile Include="CEntity.cpp" />
+    <ClCompile Include="CGameObject.cpp" />
+    <ClCompile Include="CLayer.cpp" />
     <ClCompile Include="CResource.cpp" />
+    <ClCompile Include="CScene.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="PathMgr.cpp" />
@@ -196,9 +203,11 @@ call EngineCopy.bat</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="ResMgr.cpp" />
+    <ClCompile Include="SceneMgr.cpp" />
     <ClCompile Include="TimeMgr.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="cpp.hint" />
     <None Include="SimpleMath.inl">
       <FileType>Document</FileType>
     </None>

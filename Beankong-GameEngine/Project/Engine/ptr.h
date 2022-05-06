@@ -11,7 +11,7 @@ public:
 	T* Get() const { return m_pRes; }
 
 	T** GetAddressOf() { return &m_pRes; }
-	T** GetAddressOf() { return &m_pRes; }
+	T** GetAddressOf() const { return &m_pRes; }
 
 public:
 	// 대입 연산자
@@ -60,7 +60,7 @@ public:
 	
 	bool operator != (T* _pRes)
 	{
-		return (m_pRes != _pRes)
+		return (m_pRes != _pRes);
 	}
 
 	bool operator == (const Ptr<T>& _otherPtr)
@@ -108,11 +108,11 @@ public:
 template<typename T>
 bool operator == (void* _pRes, const Ptr<T>& _ptr)
 {
-	return (m_pRes == _ptr.Get());
+	return (_pRes == _ptr.Get());
 }
 
 template<typename T>
 bool operator != (void* _pRes, const Ptr<T>& _ptr)
 {
-	return (m_pRes != _ptr.Get());
+	return (_pRes != _ptr.Get());
 }
