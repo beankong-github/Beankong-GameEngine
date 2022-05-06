@@ -14,7 +14,6 @@ public:
 	T** GetAddressOf() { return &m_pRes; }
 
 public:
-
 	// 대입 연산자
 	Ptr& operator = (T* _ptr)
 	{ 
@@ -73,7 +72,38 @@ public:
 	{
 		return(m_pRes != _otherPtr.Get());
 	}
+
+public:
+	Ptr()
+		: m_pRes(nullptr)
+	{}
+
+	Ptr(T* _pRes)
+		: m_pRes(_pRes)
+	{
+		if (nullptr != m_pRes)
+			m_pRes->AddRef();
+	}
+
+	Ptr(const Ptr<T>& _otherPtr)
+		: m_pRes(_otherPtr.m_pRes)
+	{
+		if (nullptr != m_pRes)
+			m_pRes->AddRef();
+	}
+
+	~Ptr()
+	{
+		if (nullptr != m_pRes)
+		{
+			m_pRes->SubRef();
+		}
+	}
 };
+
+
+// 전역 연산자 오버로딩
+// 왼쪽 피연산자를 자기 자신으로 둘 수 없을 때 사용한다.
 
 template<typename T>
 bool operator == (void* _pRes, const Ptr<T>& _ptr)

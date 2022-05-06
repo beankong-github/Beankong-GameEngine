@@ -50,7 +50,7 @@
     <ClInclude Include="CResource.h">
       <Filter>Engine\07.Resource</Filter>
     </ClInclude>
-    <ClInclude Include="ptr.h">
+    <ClInclude Include="Ptr.h">
       <Filter>Engine\07.Resource</Filter>
     </ClInclude>
   </ItemGroup>

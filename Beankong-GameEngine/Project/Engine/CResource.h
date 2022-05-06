@@ -1,6 +1,8 @@
 #pragma once
 #include "CEntity.h"
 
+#include "Ptr.h"
+
 class CResource :
     public CEntity
 {
@@ -31,6 +33,9 @@ public:
     virtual ~CResource();
 
     friend class ResMgr;
+
+    template<typename T>
+    friend class Ptr;
     
 };
 
