@@ -47,6 +47,7 @@
       <Filter>Engine\03.Manager\06.ResMgr</Filter>
     </ClInclude>
     <ClInclude Include="CEntity.h" />
+    <ClInclude Include="CResource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -74,6 +75,7 @@
       <Filter>Engine\03.Manager\06.ResMgr</Filter>
     </ClCompile>
     <ClCompile Include="CEntity.cpp" />
+    <ClCompile Include="CResource.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Defualt">
