@@ -57,6 +57,7 @@ void CLayer::Render()
 
 void CLayer::AddRootObject(CGameObject* _pObj)
 {
+	m_vecRoot.push_back(_pObj);
 }
 
 void CLayer::RegisterObject(CGameObject* _pObj)
@@ -66,4 +67,19 @@ void CLayer::RegisterObject(CGameObject* _pObj)
 
 void CLayer::DeregisterObject(CGameObject* _pObj)
 {
+	// 부모가 있는 Object에 대해선 Deregister를 진행하지 않는다
+	if (_pObj->GetParent())
+		return;
+
+	vector<CGameObject*>::iterator iter = m_vecObjects.begin();
+	for (; iter != m_vecObjects.end(); ++iter)
+	{
+		if (*iter == _pObj)
+		{
+			m_vecObjects.erase(iter);
+			_pObj->m_iLayerIdx = -1;
+			return;
+		}
+	}
+
 }

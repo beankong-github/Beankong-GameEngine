@@ -1,5 +1,6 @@
 #pragma once
 #include "CEntity.h"
+
 class CGameObject :
     public CEntity
 {
@@ -37,5 +38,7 @@ public:
 public:
     void DisconnectBetweenParent();
     void AddChild(CGameObject* _pChild);
+
+    friend class CLayer;
 };
 
