@@ -100,7 +100,7 @@ private:
 
 public:
 	void init();
-	void update();
+	void Update();
 
 public:
 	KEY_STATE GetKeyState(KEY _eKey)

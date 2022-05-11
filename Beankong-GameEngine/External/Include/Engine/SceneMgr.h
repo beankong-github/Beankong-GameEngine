@@ -15,7 +15,7 @@ public:
 
 public:
     void init();
-    void update();
+    void Update();
 
 };
 

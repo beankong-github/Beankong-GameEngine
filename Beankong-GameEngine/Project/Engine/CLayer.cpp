@@ -46,15 +46,6 @@ void CLayer::FinalUpdate()
 	}
 }
 
-void CLayer::Render()
-{
-	for (int i = 0; i < m_vecRoot.size(); ++i)
-	{
-		m_vecRoot[i]->Render();
-	}
-}
-
-
 void CLayer::AddRootObject(CGameObject* _pObj)
 {
 	m_vecRoot.push_back(_pObj);
@@ -62,7 +53,7 @@ void CLayer::AddRootObject(CGameObject* _pObj)
 
 void CLayer::RegisterObject(CGameObject* _pObj)
 {
-	m_vecObjects.push_back(_pObj);
+	m_vecObj.push_back(_pObj);
 }
 
 void CLayer::DeregisterObject(CGameObject* _pObj)
@@ -71,12 +62,12 @@ void CLayer::DeregisterObject(CGameObject* _pObj)
 	if (_pObj->GetParent())
 		return;
 
-	vector<CGameObject*>::iterator iter = m_vecObjects.begin();
-	for (; iter != m_vecObjects.end(); ++iter)
+	vector<CGameObject*>::iterator iter = m_vecObj.begin();
+	for (; iter != m_vecObj.end(); ++iter)
 	{
 		if (*iter == _pObj)
 		{
-			m_vecObjects.erase(iter);
+			m_vecObj.erase(iter);
 			_pObj->m_iLayerIdx = -1;
 			return;
 		}
