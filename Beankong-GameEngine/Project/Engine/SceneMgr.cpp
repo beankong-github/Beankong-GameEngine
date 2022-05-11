@@ -5,6 +5,6 @@ void SceneMgr::init()
 {
 }
 
-void SceneMgr::update()
+void SceneMgr::Update()
 {
 }

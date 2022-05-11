@@ -48,6 +48,6 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 void CCore::progress()
 {
 	/* Manager Update */
-	TimeMgr::GetInst()->update();
-	KeyMgr::GetInst()->update();
+	TimeMgr::GetInst()->Update();
+	KeyMgr::GetInst()->Update();
 }

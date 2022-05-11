@@ -24,7 +24,7 @@ private:
 
 public:
     void    init();
-    void    update();
+    void    Update();
 
 public:
     float   GetDT() { return m_fFixedDT; }

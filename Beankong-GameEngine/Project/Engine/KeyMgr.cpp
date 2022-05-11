@@ -92,7 +92,7 @@ void KeyMgr::init()
 	}
 }
 
-void KeyMgr::update()
+void KeyMgr::Update()
 {
 	HWND hFoucusedHwnd = GetFocus();
 

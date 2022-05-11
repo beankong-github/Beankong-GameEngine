@@ -28,39 +28,39 @@ CGameObject::~CGameObject()
 	Safe_Del_Vec(m_vecChild);
 }
 
-void CGameObject::start()
+void CGameObject::Start()
 {
 	for (size_t i = 0; i < m_vecChild.size(); ++i)
 	{
-		m_vecChild[i]->start();
+		m_vecChild[i]->Start();
 	}
 }
 
-void CGameObject::update()
+void CGameObject::Update()
 {
 	for (size_t i = 0; i < m_vecChild.size(); ++i)
 	{
-		m_vecChild[i]->update();
+		m_vecChild[i]->Update();
 	}
 }
 
-void CGameObject::lateupdate()
+void CGameObject::LateUpdate()
 {
 	for (size_t i = 0; i < m_vecChild.size(); ++i)
 	{
-		m_vecChild[i]->lateupdate();
+		m_vecChild[i]->LateUpdate();
 	}
 }
 
-void CGameObject::finalupdate()
+void CGameObject::FinalUpdate()
 {
 	for (size_t i = 0; i < m_vecChild.size(); ++i)
 	{
-		m_vecChild[i]->finalupdate();
+		m_vecChild[i]->FinalUpdate();
 	}
 }
 
-void CGameObject::render()
+void CGameObject::Render()
 {
 }
 

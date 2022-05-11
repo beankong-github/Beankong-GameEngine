@@ -21,11 +21,11 @@ public:
     CLONE(CGameObject)
 
 public:
-    void start();
-    void update();
-    void lateupdate();
-    void finalupdate();
-    void render();
+    void Start();
+    void Update();
+    void LateUpdate();
+    void FinalUpdate();
+    void Render();
 
 public:
     CGameObject* GetParent()                    { return m_pParent; }

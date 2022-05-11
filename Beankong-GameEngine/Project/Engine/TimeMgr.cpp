@@ -28,7 +28,7 @@ void TimeMgr::init()
 	QueryPerformanceCounter(&m_liPrevCount);
 }
 
-void TimeMgr::update()
+void TimeMgr::Update()
 {
 	/* DT 구하기 */
 	// 현재 카운트 값
