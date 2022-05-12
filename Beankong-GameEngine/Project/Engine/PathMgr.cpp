@@ -8,7 +8,7 @@ PathMgr::PathMgr()
 PathMgr::~PathMgr()
 {}
 
-void PathMgr::init()
+void PathMgr::Init()
 {
 	// .exe 파일의 경로를 반환
 	GetCurrentDirectory(256, m_strContentPath);

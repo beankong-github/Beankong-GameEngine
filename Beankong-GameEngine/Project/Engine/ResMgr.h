@@ -11,6 +11,6 @@ class ResMgr :
 private:
 
 public:
-    void init();
+    void Init();
 };
 

@@ -19,7 +19,7 @@ TimeMgr::TimeMgr()
 TimeMgr::~TimeMgr()
 {}
 
-void TimeMgr::init()
+void TimeMgr::Init()
 {
 	// 초당 카운팅 횟수
 	QueryPerformanceFrequency(&m_liFrequency);

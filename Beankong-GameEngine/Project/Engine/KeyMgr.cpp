@@ -83,7 +83,7 @@ KeyMgr::KeyMgr()
 KeyMgr::~KeyMgr()
 {}
 
-void KeyMgr::init()
+void KeyMgr::Init()
 {
 	// 모든 키 상태 초기화
 	for (UINT i = 0; i < (UINT)KEY::KEY_END; ++i)

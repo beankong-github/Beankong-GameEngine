@@ -14,7 +14,7 @@ CDevice::CDevice()
 CDevice::~CDevice()
 {}
 
-int CDevice::init(HWND _hWnd, Vec2 _vRenderResolution)
+int CDevice::Init(HWND _hWnd, Vec2 _vRenderResolution)
 {
 	// 윈도우 핸들, 화면 해상도를 받아 멤버에 저장
 	m_hWnd = _hWnd;

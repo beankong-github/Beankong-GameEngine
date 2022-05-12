@@ -10,7 +10,7 @@ private:
 	wchar_t m_strContentPath[256];
 
 public:
-	void init();
+	void Init();
 
 
 public:

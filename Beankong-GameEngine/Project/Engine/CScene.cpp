@@ -123,7 +123,7 @@ CLayer* CScene::GetLayer(const wstring& _strLayerName)
 		{
 			return m_arrLayer[i];
 		}
-
+	}
 
 	return nullptr;
 }

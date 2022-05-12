@@ -11,8 +11,8 @@ private:
 	POINT	m_ptResolution;
 
 public:
-	int init(HWND _hWnd, POINT _ptResolution);
-	void progress();
+	int Init(HWND _hWnd, POINT _ptResolution);
+	void Progress();
 	HWND GetMainHwnd() { return m_hWnd; }
 
 };

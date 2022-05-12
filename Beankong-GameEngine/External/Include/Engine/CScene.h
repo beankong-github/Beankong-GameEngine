@@ -16,7 +16,7 @@ public:
     void AddRootObject(CGameObject* _pRootObj, const wstring& _strLayerName);
     
     CLayer* GetLayer(int _iIdx);
-    CLayer* GetLayer(const wstring* _strLayerName);
+    CLayer* GetLayer(const wstring& _strLayerName);
 
 public:
     void Start();

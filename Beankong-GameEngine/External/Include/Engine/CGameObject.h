@@ -40,5 +40,6 @@ public:
     void AddChild(CGameObject* _pChild);
 
     friend class CLayer;
+    friend class CScene;
 };
 
