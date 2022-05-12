@@ -3,6 +3,7 @@
 
 
 CResource::CResource()
+    : m_iRefCount(0)
 {
 }
 

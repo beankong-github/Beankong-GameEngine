@@ -99,7 +99,7 @@ private:
 	Vec2				m_vMouseDir;
 
 public:
-	void init();
+	void Init();
 	void Update();
 
 public:

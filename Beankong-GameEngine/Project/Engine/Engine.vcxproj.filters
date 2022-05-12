@@ -43,9 +43,6 @@
     <ClInclude Include="KeyMgr.h">
       <Filter>Engine\03.Manager\04.KeyMgr</Filter>
     </ClInclude>
-    <ClInclude Include="ResMgr.h">
-      <Filter>Engine\03.Manager\06.ResMgr</Filter>
-    </ClInclude>
     <ClInclude Include="CEntity.h" />
     <ClInclude Include="CResource.h">
       <Filter>Engine\07.Resource</Filter>
@@ -65,6 +62,7 @@
     <ClInclude Include="CGameObject.h">
       <Filter>Engine\04.GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="ResMgr.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -88,9 +86,6 @@
     <ClCompile Include="KeyMgr.cpp">
       <Filter>Engine\03.Manager\04.KeyMgr</Filter>
     </ClCompile>
-    <ClCompile Include="ResMgr.cpp">
-      <Filter>Engine\03.Manager\06.ResMgr</Filter>
-    </ClCompile>
     <ClCompile Include="CEntity.cpp" />
     <ClCompile Include="CResource.cpp">
       <Filter>Engine\07.Resource</Filter>
@@ -107,6 +102,7 @@
     <ClCompile Include="CGameObject.cpp">
       <Filter>Engine\04.GameObject</Filter>
     </ClCompile>
+    <ClCompile Include="ResMgr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Defualt">

@@ -18,6 +18,15 @@ SceneMgr::~SceneMgr()
 
 void SceneMgr::Init()
 {
+	m_pCurScene = new CScene;
+
+	// Set Layer Name
+	m_pCurScene->SetLayerName(0, L"Tile");
+	m_pCurScene->SetLayerName(1, L"Default");
+	m_pCurScene->SetLayerName(2, L"Player");
+	m_pCurScene->SetLayerName(3, L"Monster");
+
+
 }
 
 void SceneMgr::Progress()

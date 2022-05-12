@@ -35,7 +35,7 @@ private:
 
 
 public:
-    int init(HWND _hWnd, Vec2 _vRenderResolution);
+    int Init(HWND _hWnd, Vec2 _vRenderResolution);
 
     void Present() { m_pSwapChain->Present(0, 0); }
     void ClearTarget();

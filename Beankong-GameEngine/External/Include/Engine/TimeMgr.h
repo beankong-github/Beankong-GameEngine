@@ -23,7 +23,7 @@ private:
     bool            m_bPause;
 
 public:
-    void    init();
+    void    Init();
     void    Update();
 
 public:

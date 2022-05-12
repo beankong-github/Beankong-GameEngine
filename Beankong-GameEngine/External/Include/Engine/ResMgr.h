@@ -1,16 +1,13 @@
 #pragma once
-#include "pch.h"
-
-#include "PathMgr.h"
+#include "singleton.h"
 
 class ResMgr :
     public Singleton<ResMgr>
 {
     SINGLE(ResMgr)
-
 private:
 
 public:
-    void init();
+    void Init();
 };
 
