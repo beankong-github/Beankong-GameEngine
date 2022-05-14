@@ -23,5 +23,19 @@ private:
     void CreateEngineComputeShader();
     void CreateEngineMaterial();
     void MakeInputLayoutInfo();
+
+public:
+    template<typename type>
+    RES_TYPE GetResType();
+
+    template<typename type>
+    Ptr<type> Load(const wstring& _strKey, const wstring);
+
+    template<typename type>
+    Ptr<type> FindRes(const wstring& _strKey);
+
+    template<typename type>
+    void AddRes(const wstring& _strKey, type* _pRes);
+
 };
 
