@@ -22,7 +22,7 @@ int CCore::Init(HWND _hWnd, POINT _ptResolution)
 	// 윈도우 크기 설정
 	RECT rt = { 0, 0, _ptResolution.x, _ptResolution.y };
 	AdjustWindowRect(&rt, WS_OVERLAPPEDWINDOW, false);
-	SetWindowPos(_hWnd, nullptr, 10, 10, rt.right - rt.left, rt.bottom - rt.top, 0);
+	SetWindowPos(_hWnd, nullptr, 0, 0, rt.right - rt.left, rt.bottom - rt.top, 0);
 
 	m_hWnd = _hWnd;
 	m_ptResolution = _ptResolution;

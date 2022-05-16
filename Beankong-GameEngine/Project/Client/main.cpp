@@ -45,7 +45,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
     // Engine Core 초기화
-    if (FAILED(CCore::GetInst()->Init(g_hWnd, POINT{ 1600, 900 })))
+    POINT pResolution;
+    pResolution.x = GetSystemMetrics(SM_CXSCREEN);
+    pResolution.y = GetSystemMetrics(SM_CYSCREEN);
+ 
+    if (FAILED(CCore::GetInst()->Init(g_hWnd, pResolution)))
     {
         return 0;
     }

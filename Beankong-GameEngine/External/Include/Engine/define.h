@@ -24,6 +24,22 @@ typedef Vector2 Vec2;
 typedef Vector3 Vec3;
 typedef Vector4 Vec4;
 
+
+// 리소스 종류
+enum class RES_TYPE
+{
+	GRAPHICS_SHADER,
+	COMPUTE_SHADER,
+	PREFAB,
+	MESHDATA,
+	MATERIAL,
+	MESH,
+	TEXTURE,
+	SOUND,
+	END,
+};
+
+
 // 상수 버퍼 타입
 enum class CB_TYPE
 {
