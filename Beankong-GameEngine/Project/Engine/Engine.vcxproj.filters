@@ -65,6 +65,27 @@
     <ClInclude Include="ResMgr.h">
       <Filter>Engine\03.Manager\06.ResMgr</Filter>
     </ClInclude>
+    <ClInclude Include="CPrefab.h">
+      <Filter>Engine\07.Resource\01. Prefab</Filter>
+    </ClInclude>
+    <ClInclude Include="CMaterial.h">
+      <Filter>Engine\07.Resource\03. Material</Filter>
+    </ClInclude>
+    <ClInclude Include="CMesh.h">
+      <Filter>Engine\07.Resource\04. Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="CTexture.h">
+      <Filter>Engine\07.Resource\05. Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="CShader.h">
+      <Filter>Engine\07.Resource\07. Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="CComputerShader.h">
+      <Filter>Engine\07.Resource\07. Shader\ComputeShader</Filter>
+    </ClInclude>
+    <ClInclude Include="CGraphicShader.h">
+      <Filter>Engine\07.Resource\07. Shader\GraphicShader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -106,6 +127,30 @@
     </ClCompile>
     <ClCompile Include="ResMgr.cpp">
       <Filter>Engine\03.Manager\06.ResMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CPrefab.cpp">
+      <Filter>Engine\07.Resource\01. Prefab</Filter>
+    </ClCompile>
+    <ClCompile Include="CMaterial.cpp">
+      <Filter>Engine\07.Resource\03. Material</Filter>
+    </ClCompile>
+    <ClCompile Include="CMesh.cpp">
+      <Filter>Engine\07.Resource\04. Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="CTexture.cpp">
+      <Filter>Engine\07.Resource\05. Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="CShader.cpp">
+      <Filter>Engine\07.Resource\07. Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="ResMgr_init.cpp">
+      <Filter>Engine\03.Manager\06.ResMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CComputerShader.cpp">
+      <Filter>Engine\07.Resource\07. Shader\ComputeShader</Filter>
+    </ClCompile>
+    <ClCompile Include="CGraphicShader.cpp">
+      <Filter>Engine\07.Resource\07. Shader\GraphicShader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +219,33 @@
     </Filter>
     <Filter Include="Engine\06.Scene\02.Layer">
       <UniqueIdentifier>{7fc1279c-8ddc-42f8-a017-f71057d15ead}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Resource\01. Prefab">
+      <UniqueIdentifier>{c42a42cd-a35a-4330-b335-53bbb9c5d4c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Resource\02. MeshData">
+      <UniqueIdentifier>{6db7bab4-5eae-4860-827d-6e26751828f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Resource\03. Material">
+      <UniqueIdentifier>{ea7f6fe6-f0d0-4dda-af2c-7d94bec80edd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Resource\04. Mesh">
+      <UniqueIdentifier>{3657b077-da87-4e83-8dd2-e0fb2c4c356c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Resource\05. Texture">
+      <UniqueIdentifier>{4462ed4c-7d7b-4058-86c0-4ef80d2a83df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Resource\06. Sound">
+      <UniqueIdentifier>{150dc0d7-8a1a-4aee-ab6b-e347dcce5a40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Resource\07. Shader">
+      <UniqueIdentifier>{f7838ecb-9d4e-495b-9474-c195ff6535c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Resource\07. Shader\GraphicShader">
+      <UniqueIdentifier>{63586135-9082-493a-ba71-cafbadba2b9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Resource\07. Shader\ComputeShader">
+      <UniqueIdentifier>{5a82548e-09f0-413b-9df5-236f7bdbfdfc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

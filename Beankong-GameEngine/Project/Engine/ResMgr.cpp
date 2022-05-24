@@ -11,30 +11,3 @@ ResMgr::~ResMgr()
 		Safe_Del_Map(m_Res[i]);
 	}
 }
-
-void ResMgr::Init()
-{}
-
-void ResMgr::CreateEngineMesh()
-{
-}
-
-void ResMgr::CreateEngineTexture()
-{
-}
-
-void ResMgr::CreateEngineShader()
-{
-}
-
-void ResMgr::CreateEngineComputeShader()
-{
-}
-
-void ResMgr::CreateEngineMaterial()
-{
-}
-
-void ResMgr::MakeInputLayoutInfo()
-{
-}
