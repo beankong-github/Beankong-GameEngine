@@ -42,7 +42,7 @@ public:
     Ptr<type> FindRes(const wstring& _strKey);
 
     template<typename type>
-    void AddRes(const wstring& _strKey, type* _pRes);
+    void AddRes(const wstring& _strKey, type* _pRes, bool _bEngineRes);
 
     //_flag : D3D11_BIND_FLAG
     Ptr<CTexture> CreateTexture(const wstring& _strKey, UINT _iWidth, UINT _iHeight
@@ -115,7 +115,7 @@ inline Ptr<type> ResMgr::FindRes(const wstring& _strKey)
 }
 
 template<typename type>
-inline void ResMgr::AddRes(const wstring& _strKey, type* _pRes)
+inline void ResMgr::AddRes(const wstring& _strKey, type* _pRes, bool _bEngineRes)
 {
     RES_TYPE eType = GetResType<type>();
 
