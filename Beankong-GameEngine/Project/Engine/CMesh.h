@@ -22,10 +22,11 @@ public:
 
 public:
     virtual int Load(const wstring& _strFilePath) { return S_OK; }
+    int Create(void* _pVtxSys, UINT _iVtxCount, void* _pIdxSys, UINT _iIdxCount);   // 정점 버퍼, 인덱스 버퍼 생성
+    
     virtual void UpdateData() override;
 
-    int Create(void* _pVtxSys, UINT _iVtxCount, void* _pIdxSys, UINT _iIdxCount);   // 정점 버퍼, 인덱스 버퍼 생성
-
+public:
     void Render();
     void Render_Particle(UINT _iCount);
 

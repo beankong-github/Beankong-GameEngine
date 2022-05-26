@@ -36,13 +36,13 @@ public:
     RES_TYPE GetResType();
 
     template<typename type>
-    Ptr<type> Load(const wstring& _strKey, const wstring& _strRelativePath, bool _bEngineRes);
+    Ptr<type> Load(const wstring& _strKey, const wstring& _strRelativePath, bool _bEngineRes = false);
 
     template<typename type>
     Ptr<type> FindRes(const wstring& _strKey);
 
     template<typename type>
-    void AddRes(const wstring& _strKey, type* _pRes, bool _bEngineRes);
+    void AddRes(const wstring& _strKey, type* _pRes, bool _bEngineRes = false);
 
     //_flag : D3D11_BIND_FLAG
     Ptr<CTexture> CreateTexture(const wstring& _strKey, UINT _iWidth, UINT _iHeight

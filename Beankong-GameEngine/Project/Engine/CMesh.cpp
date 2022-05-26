@@ -105,6 +105,7 @@ void CMesh::UpdateData()
 	UINT iStride = sizeof(Vtx);
 	UINT iOffset = 0;
 
+	// 버텍스 버퍼와 인덱스 버퍼를 ImputAssmbler 단계에 전달할 데이터로 세팅한다.
 	CONTEXT->IASetVertexBuffers(0, 1, m_VB.GetAddressOf(), &iStride, &iOffset);
 	CONTEXT->IASetIndexBuffer(m_IB.Get(), DXGI_FORMAT_R32_UINT, 0);
 }
