@@ -8,7 +8,7 @@
 #include "CMaterial.h"
 #include "CMesh.h"
 #include "CTexture.h"
-#include "CGraphicShader.h"
+#include "CGraphicsShader.h"
 #include "CComputerShader.h"
 
 
@@ -65,7 +65,7 @@ inline RES_TYPE ResMgr::GetResType()
         return RES_TYPE::MESH;
     else if (info.hash_code() == typeid(CTexture).hash_code())
         return RES_TYPE::TEXTURE;
-    else if (info.hash_code() == typeid(CGraphicShader).hash_code())
+    else if (info.hash_code() == typeid(CGraphicsShader).hash_code())
         return RES_TYPE::GRAPHICS_SHADER;
     else if (info.hash_code() == typeid(CComputerShader).hash_code())
         return RES_TYPE::COMPUTE_SHADER;
@@ -104,7 +104,7 @@ inline Ptr<type> ResMgr::Load(const wstring& _strKey, const wstring& _strRelativ
 template<typename type>
 inline Ptr<type> ResMgr::FindRes(const wstring& _strKey)
 {
-    RES_TYPE eType = GetResType(type);
+    RES_TYPE eType = GetResType<type>();
 
     map<wstring, CResource*>::iterator iter = m_Res[(UINT)eType].find(_strKey);
 

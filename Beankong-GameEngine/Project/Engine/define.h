@@ -84,3 +84,61 @@ enum class BS_TYPE
 	ALPHA_BLEND,			// SrcRGB * (SrcAlpha) + DestRGB * (1 - SrcAlpha)
 	END,
 };
+
+// 쉐이더 랜더링 시점에 따른 분류
+enum class SHADER_DOMAIN
+{
+	DOMAIN_FORWARD,			// 불투명
+	DOMAIN_MASKED,			// 불투명, 투명
+	DOMAIN_TRANSLUCENT,		// 반투명
+	DOMAIN_POSTPROCESS		// 후처리
+
+};
+
+enum class SCALAR_PARAM
+{
+	INT_0,
+	INT_1,
+	INT_2,
+	INT_3,
+
+	FLOAT_0,
+	FLOAT_1,
+	FLOAT_2,
+	FLOAT_3,
+
+	VEC2_0,
+	VEC2_1,
+	VEC2_2,
+	VEC2_3,
+
+	VEC4_0,
+	VEC4_1,
+	VEC4_2,
+	VEC4_3,
+
+	MAT_0,
+	MAT_1,
+	MAT_2,
+	MAT_3,
+
+	END,
+};
+
+enum class TEX_PARAM
+{
+	TEX_0,
+	TEX_1,
+	TEX_2,
+	TEX_3,
+	TEX_4,
+	TEX_5,
+
+	TEX_CUBE_0,
+	TEX_CUBE_1,
+
+	TEX_ARR_0,
+	TEX_ARR_1,
+
+	END,
+};

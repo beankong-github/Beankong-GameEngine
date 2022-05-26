@@ -166,7 +166,7 @@
     <ClInclude Include="CDevice.h" />
     <ClInclude Include="CEntity.h" />
     <ClInclude Include="CGameObject.h" />
-    <ClInclude Include="CGraphicShader.h" />
+    <ClInclude Include="CGraphicsShader.h" />
     <ClInclude Include="CLayer.h" />
     <ClInclude Include="CMaterial.h" />
     <ClInclude Include="CMesh.h" />
@@ -197,7 +197,7 @@
     <ClCompile Include="CDevice.cpp" />
     <ClCompile Include="CEntity.cpp" />
     <ClCompile Include="CGameObject.cpp" />
-    <ClCompile Include="CGraphicShader.cpp" />
+    <ClCompile Include="CGraphicsShader.cpp" />
     <ClCompile Include="CLayer.cpp" />
     <ClCompile Include="CMaterial.cpp" />
     <ClCompile Include="CMesh.cpp" />

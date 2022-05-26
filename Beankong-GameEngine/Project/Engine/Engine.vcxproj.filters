@@ -83,8 +83,8 @@
     <ClInclude Include="CComputerShader.h">
       <Filter>Engine\07.Resource\07. Shader\ComputeShader</Filter>
     </ClInclude>
-    <ClInclude Include="CGraphicShader.h">
-      <Filter>Engine\07.Resource\07. Shader\GraphicShader</Filter>
+    <ClInclude Include="CGraphicsShader.h">
+      <Filter>Engine\07.Resource\07. Shader\GraphicsShader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -149,8 +149,8 @@
     <ClCompile Include="CComputerShader.cpp">
       <Filter>Engine\07.Resource\07. Shader\ComputeShader</Filter>
     </ClCompile>
-    <ClCompile Include="CGraphicShader.cpp">
-      <Filter>Engine\07.Resource\07. Shader\GraphicShader</Filter>
+    <ClCompile Include="CGraphicsShader.cpp">
+      <Filter>Engine\07.Resource\07. Shader\GraphicsShader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -241,11 +241,11 @@
     <Filter Include="Engine\07.Resource\07. Shader">
       <UniqueIdentifier>{f7838ecb-9d4e-495b-9474-c195ff6535c3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\07.Resource\07. Shader\GraphicShader">
-      <UniqueIdentifier>{63586135-9082-493a-ba71-cafbadba2b9c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\07.Resource\07. Shader\ComputeShader">
       <UniqueIdentifier>{5a82548e-09f0-413b-9df5-236f7bdbfdfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Resource\07. Shader\GraphicsShader">
+      <UniqueIdentifier>{63586135-9082-493a-ba71-cafbadba2b9c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
