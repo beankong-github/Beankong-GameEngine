@@ -18,7 +18,7 @@ class CGraphicsShader :
     public CShader
 {
 private:
-    static vector<D3D11_INPUT_ELEMENT_DESC> g_vecLayout;
+    static vector<D3D11_INPUT_ELEMENT_DESC> g_vecLayout;    // 정점 구조체 정보
     static UINT g_iOffset;
 
 public:
