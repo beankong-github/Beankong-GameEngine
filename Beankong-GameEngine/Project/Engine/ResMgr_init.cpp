@@ -86,6 +86,47 @@ void ResMgr::CreateEngineMesh()
 	// =============
 	//	CIRCLE MESH
 	// =============
+	// Circle_Normal
+	v.vPos = Vec3(0.f, 0.f, 0.f);
+	v.vColor = Vec4(1.f, 1.f, 1.f, 1.f);
+	v.vUV = Vec2(0.5f, 0.5f);
+	vecVtx.push_back(v);
+
+	UINT iSliceCount = 40;
+	float fRadius = 0.5f;
+	float fAngleStep = XM_2PI / float(iSliceCount);
+
+	for (UINT i = 0; i < iSliceCount + 1; ++i)
+	{
+		v.vPos = Vec3(fRadius * cosf(fAngleStep * (float)i), fRadius * sinf(fAngleStep * (float)i), 0.f);
+		v.vColor = Vec4(1.f, 1.f, 1.f, 1.f);
+		v.vUV = Vec2(v.vPos.x + 0.5f, -v.vPos.y + 0.5f);
+		vecVtx.push_back(v);
+	}
+
+
+	for (UINT i = 0; i < iSliceCount + 1; ++i)
+	{
+		vecIdx.push_back(0);
+		vecIdx.push_back(i + 2);
+		vecIdx.push_back(i + 1);
+	}
+
+	pMesh = new CMesh;
+	pMesh->Create(vecVtx.data(), (UINT)vecVtx.size(), vecIdx.data(), (UINT)vecIdx.size());
+	AddRes<CMesh>(L"CircleMesh", pMesh);
+	vecIdx.clear();
+
+	// CicleMesh_LineStrip
+	for (UINT i = 1; i <= iSliceCount + 1; ++i)
+	{
+		vecIdx.push_back(i);
+	}
+
+	pMesh = new CMesh;
+	pMesh->Create(vecVtx.data(), (UINT)vecVtx.size(), vecIdx.data(), (UINT)vecIdx.size());
+	AddRes<CMesh>(L"CircleMesh_LineStrip", pMesh);
+	vecVtx.clear(); vecIdx.clear();
 }
 
 void ResMgr::CreateEngineShader()
@@ -94,7 +135,21 @@ void ResMgr::CreateEngineShader()
 
 	CGraphicsShader* pShader = nullptr;
 	
-	// 
+	// ================
+	//	 Std2D Shader
+	// ================
+	pShader = new CGraphicsShader;
+	pShader->CreateVertexShader(L"shader\\std2d.fx", "VS_Std2D");
+	pShader->CreatePixelShader(L"shader\\std2d.fx", "PS_Std2D");
+
+	pShader->SetShaderDomain(SHADER_DOMAIN::DOMAIN_MASKED);
+	pShader->SetRSType(RS_TYPE::CULL_NONE);
+	pShader->SetBSType(BS_TYPE::DEFAULT);
+
+	pShader->AddScalarParamInfo(L"Mask Limit", SCALAR_PARAM::FLOAT_0);
+	pShader->AddTexParamInfo(L"OutputTex", TEX_PARAM::TEX_0);
+
+	AddRes<CGraphicsShader>(L"Std2DShader", pShader);
 
 }
 
@@ -153,7 +208,7 @@ Ptr<CTexture> ResMgr::CreateTexture(const wstring& _strKey, UINT _iWidth, UINT _
 	return Ptr<CTexture>();
 }
 
-`Ptr<CTexture> ResMgr::CreateTexture(const wstring& _strKey, ComPtr<ID3D11Texture2D> _pTex2D, bool _bEngineRes)
+Ptr<CTexture> ResMgr::CreateTexture(const wstring& _strKey, ComPtr<ID3D11Texture2D> _pTex2D, bool _bEngineRes)
 {
 	return Ptr<CTexture>();
 }

@@ -43,7 +43,6 @@
     <ClInclude Include="KeyMgr.h">
       <Filter>Engine\03.Manager\04.KeyMgr</Filter>
     </ClInclude>
-    <ClInclude Include="CEntity.h" />
     <ClInclude Include="CResource.h">
       <Filter>Engine\07.Resource</Filter>
     </ClInclude>
@@ -86,6 +85,9 @@
     <ClInclude Include="CGraphicsShader.h">
       <Filter>Engine\07.Resource\07. Shader\GraphicsShader</Filter>
     </ClInclude>
+    <ClInclude Include="CEntity.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -109,7 +111,6 @@
     <ClCompile Include="KeyMgr.cpp">
       <Filter>Engine\03.Manager\04.KeyMgr</Filter>
     </ClCompile>
-    <ClCompile Include="CEntity.cpp" />
     <ClCompile Include="CResource.cpp">
       <Filter>Engine\07.Resource</Filter>
     </ClCompile>
@@ -151,6 +152,9 @@
     </ClCompile>
     <ClCompile Include="CGraphicsShader.cpp">
       <Filter>Engine\07.Resource\07. Shader\GraphicsShader</Filter>
+    </ClCompile>
+    <ClCompile Include="CEntity.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -247,11 +251,36 @@
     <Filter Include="Engine\07.Resource\07. Shader\GraphicsShader">
       <UniqueIdentifier>{63586135-9082-493a-ba71-cafbadba2b9c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\ShaderCode">
+      <UniqueIdentifier>{778e4a3d-9969-482d-ae82-1e43ee96b6d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\ShaderCode\GraphicsShader">
+      <UniqueIdentifier>{e729a704-c6b7-4f83-afb8-7fcc7a23edc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\ShaderCode\ComputeShader">
+      <UniqueIdentifier>{e41ed2f8-275e-49ed-9819-00fafe2b00f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleMath.inl">
       <Filter>Engine\Module</Filter>
     </None>
-    <None Include="cpp.hint" />
+    <None Include="cpp.hint">
+      <Filter>Engine</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="func.fx">
+      <Filter>Engine\ShaderCode</Filter>
+    </FxCompile>
+    <FxCompile Include="struct.fx">
+      <Filter>Engine\ShaderCode</Filter>
+    </FxCompile>
+    <FxCompile Include="value.fx">
+      <Filter>Engine\ShaderCode</Filter>
+    </FxCompile>
+    <FxCompile Include="std2d.fx">
+      <Filter>Engine\ShaderCode\GraphicsShader</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

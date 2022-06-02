@@ -7,9 +7,11 @@ class CResource :
     public CEntity
 {
 private:
-    wstring m_strKey;
-    wstring m_strRelativePath;
-    UINT    m_iRefCount;
+    wstring     m_strKey;
+    wstring     m_strRelativePath;
+    UINT        m_iRefCount;
+
+    bool        m_bEngineRes;
 
 protected:  
     void SetKey(const wstring& _strKey)             { m_strKey = _strKey; }
