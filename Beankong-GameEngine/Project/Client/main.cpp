@@ -1,8 +1,10 @@
-﻿// Beankong-GameEngine.cpp : 애플리케이션에 대한 진입점을 정의합니다.
+﻿// 39Engine.cpp : 애플리케이션에 대한 진입점을 정의합니다.
 //
+
 #include "pch.h"
 #include "framework.h"
 #include "main.h"
+
 
 #include <Engine/CCore.h>
 
@@ -12,12 +14,17 @@
 #pragma comment(lib, "Engine/Engine.lib")
 #endif
 
+#include <Engine/CDevice.h>
+
+#include "CImGuiMgr.h"
+#include "ImGui/imgui_impl_win32.h"
+
 
 
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
-HINSTANCE   hInst;                                // 현재 인스턴스입니다.
+HINSTANCE   hInst;                                
 HWND        g_hWnd;
 
 
@@ -31,11 +38,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
-{
-    // 메모리 릭 검사
+{   
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-    //_CrtSetBreakAlloc();
-
+    //_CrtSetBreakAlloc( );
+    
     MyRegisterClass(hInstance);
 
     // 애플리케이션 초기화를 수행합니다:
@@ -45,39 +51,57 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     }
 
     // Engine Core 초기화
-    if (FAILED(CCore::GetInst()->Init(g_hWnd, POINT{ 1600, 900 })))
+    if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{ 1600, 900 })))
     {
         return 0;
     }
+    CCore::GetInst()->progress();
 
-    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_BEANKONGGAMEENGINE));
 
+    // ImGui 초기화
+    CImGuiMgr::GetInst()->init(g_hWnd);
+    
+
+    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_MY39ENGINE));
     MSG msg;
 
-    // 기본 메시지 루프입니다:
-    while (true) {
-
+    // 메시지 루프입니다:
+    while (true)
+    {
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            // 메세지를 처리한다.
             if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
             {
                 TranslateMessage(&msg);
                 DispatchMessage(&msg);
             }
+
             if (WM_QUIT == msg.message)
             {
                 break;
             }
         }
+
         else
         {
-            CCore::GetInst()->Progress();
-        }
+            // Engine Update
+            CCore::GetInst()->progress();
 
+            // ImGui Update, render
+            CImGuiMgr::GetInst()->progress();
+            CImGuiMgr::GetInst()->render();
+
+            // Present
+            CDevice::GetInst()->Present();
+        }        
     }
-        return (int)msg.wParam;
+
+    CImGuiMgr::GetInst()->clear();
+
+    return (int) msg.wParam;
 }
+
+
 
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
@@ -90,21 +114,22 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.cbClsExtra     = 0;
     wcex.cbWndExtra     = 0;
     wcex.hInstance      = hInstance;
-    wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_BEANKONGGAMEENGINE));
+    wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_MY39ENGINE));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName = 0; //MAKEINTRESOURCEW(IDC_BEANKONGGAMEENGINE);
-    wcex.lpszClassName  = L"BK-Engine";
+    wcex.lpszMenuName = nullptr;// MAKEINTRESOURCEW(IDC_MY39ENGINE);
+    wcex.lpszClassName  = L"WindowClass";
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
     return RegisterClassExW(&wcex);
 }
 
+
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-   hInst = hInstance;
+   hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   g_hWnd = CreateWindowW(L"BK-Engine", L"BK-Engine", WS_OVERLAPPEDWINDOW,
+   g_hWnd = CreateWindowW(L"WindowClass", L"39Engine", WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
    if (!g_hWnd)
@@ -118,8 +143,14 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    return TRUE;
 }
 
+IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+    if (ImGui_ImplWin32_WndProcHandler(hWnd, message, wParam, lParam))
+        return true;
+
     switch (message)
     {
     case WM_COMMAND:
@@ -150,6 +181,18 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
+
+    case WM_DPICHANGED:
+        if (ImGui::GetIO().ConfigFlags & ImGuiConfigFlags_DpiEnableScaleViewports)
+        {
+            //const int dpi = HIWORD(wParam);
+            //printf("WM_DPICHANGED to %d (%.0f%%)\n", dpi, (float)dpi / 96.0f * 100.0f);
+            const RECT* suggested_rect = (RECT*)lParam;
+            ::SetWindowPos(hWnd, NULL, suggested_rect->left, suggested_rect->top, suggested_rect->right - suggested_rect->left, suggested_rect->bottom - suggested_rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
+        }
+        break;
+
+
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
