@@ -1,13 +1,12 @@
 #include "pch.h"
 #include "MaterialUI.h"
 
-
 #include "ParamUI.h"
-#include <Engine/CMaterial.h>
-#include <Engine/CGraphicsShader.h>
+#include <Engine/CResMgr.h>
 
 MaterialUI::MaterialUI()
 	: ResInfoUI("Material", RES_TYPE::MATERIAL)
+	, m_eSelectedTexParam(TEX_PARAM::END)
 {
 }
 
@@ -108,9 +107,30 @@ void MaterialUI::render_update()
 		case TEX_PARAM::TEX_CUBE_1:
 		case TEX_PARAM::TEX_ARR_0:
 		case TEX_PARAM::TEX_ARR_1:
-			CTexture* pTex = ParamUI::Param_Tex(strDesc, pMtrl->GetTexParam(vecTexParamInfo[i].eTexParam).Get());
-			pMtrl->SetTexParam(vecTexParamInfo[i].eTexParam, pTex);
+			if (ParamUI::Param_Tex(strDesc, pMtrl->GetTexParam(vecTexParamInfo[i].eTexParam).Get(), this, (DBCLKED)&MaterialUI::TextureSelected))
+			{
+				m_eSelectedTexParam = vecTexParamInfo[i].eTexParam;
+			}
 			break;
 		}
 	}
+}
+
+void MaterialUI::TextureSelected(DWORD_PTR _ptr)
+{
+	// 입력 받은 데이터를 Resource의 Key로 받는다
+	string str = (char*)_ptr;
+	wstring wstrKey = wstring(str.begin(), str.end());
+
+	// key에 대응하는 Texture를 찾는다.
+	CTexture* pSelectTex = CResMgr::GetInst()->FindRes<CTexture>(wstrKey).Get();
+	assert(pSelectTex);
+	
+	// 현재 UI에서 Target으로 하는 Material을 가져온다.
+	CMaterial* pMtrl = dynamic_cast<CMaterial*>(GetTargetRes());
+	assert(pMtrl);
+
+	// Material의 m_eSelectedTexParam에 텍스처를 살장힌디.
+	pMtrl->SetTexParam(m_eSelectedTexParam, pSelectTex);
+
 }

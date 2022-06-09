@@ -46,11 +46,11 @@ void TreeNode::update()
 void TreeNode::render_update()
 {
 	// ImGuiTreeNodeFlags_	
-	ImGuiTreeNodeFlags eFlag = ImGuiTreeNodeFlags_None;
+	ImGuiTreeNodeFlags eFlag = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick;
 
 	if (m_bLeaf)
 		eFlag |= ImGuiTreeNodeFlags_Leaf;
-	if (nullptr == m_pParent || m_pParent->m_strName == "DummyRoot")
+	if (m_pTreeUI->m_bUseFrame && (nullptr == m_pParent || m_pParent->m_strName == "DummyRoot"))
 		eFlag |= ImGuiTreeNodeFlags_Framed;
 	if (m_bSelected)
 		eFlag |= ImGuiTreeNodeFlags_Selected;
@@ -82,7 +82,8 @@ TreeUI::TreeUI(bool _bDummyRoot)
 	, m_pRootNode(nullptr)
 	, m_pSelectedNode(nullptr)
 	, m_bUseDummyRoot(_bDummyRoot)
-	, m_bShowDummy(false)	
+	, m_bShowDummy(false)
+	, m_bUseFrame(false)
 	, m_pCInst(nullptr)
 	, m_CFunc(nullptr)
 	, m_pDBCInst(nullptr)
@@ -139,6 +140,18 @@ void TreeUI::render_update()
 	{
 		m_pRootNode->render_update();
 	}
+
+	// KeyBinding »£√‚
+	if (ImGui::IsWindowFocused())
+	{
+		for (size_t i = 0; i < m_vecKeyBind.size(); ++i)
+		{
+			if (KEY_TAP(m_vecKeyBind[i].eKey))
+			{
+				(m_vecKeyBind[i].pInst->*m_vecKeyBind[i].pFunc)((DWORD_PTR)m_pSelectedNode);
+			}
+		}
+	}
 }
 
 TreeNode* TreeUI::AddTreeNode(TreeNode* _pParentNode, const string& _strName, DWORD_PTR _dwData)
@@ -164,6 +177,33 @@ TreeNode* TreeUI::AddTreeNode(TreeNode* _pParentNode, const string& _strName, DW
 	}	
 
 	return pNewNode;
+}
+
+void TreeUI::SetKeyBinding(KEY _eKey, UI* _pInst, KEY_FUNC _Func)
+{
+	m_vecKeyBind.push_back(tTreeKey{ _eKey, _pInst, _Func });
+}
+
+const tTreeKey* TreeUI::GetKeyBinding(KEY _eKey)
+{
+	for (int i = 0; i < m_vecKeyBind.size(); i++)
+	{
+		if (m_vecKeyBind[i].eKey == _eKey)
+			return &m_vecKeyBind[i];
+	}
+}
+
+void TreeUI::Clear()
+{
+	SAFE_DELETE(m_pRootNode);
+
+	m_pRootNode = nullptr;
+	m_pSelectedNode = nullptr;
+
+	if (m_bUseDummyRoot)
+	{
+		AddTreeNode(nullptr, "DummyRoot");
+	}
 }
 
 

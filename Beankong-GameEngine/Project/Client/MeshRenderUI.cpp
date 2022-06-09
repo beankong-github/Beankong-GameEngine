@@ -53,7 +53,7 @@ void MeshRenderUI::render_update()
 
 		for (const auto& pair : mapRes)
 		{			
-			pListUI->AddList(string(pair.first.begin(), pair.first.end()));
+			pListUI->AddToList(string(pair.first.begin(), pair.first.end()));
 		}
 		
 		pListUI->Activate();
@@ -75,7 +75,7 @@ void MeshRenderUI::render_update()
 
 		for (const auto& pair : mapRes)
 		{
-			pListUI->AddList(string(pair.first.begin(), pair.first.end()));
+			pListUI->AddToList(string(pair.first.begin(), pair.first.end()));
 		}
 
 		pListUI->Activate();

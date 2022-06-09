@@ -1,6 +1,8 @@
 #pragma once
 #include "UI.h"
 
+#include <Engine/CKeyMgr.h>
+
 class TreeUI;
 
 class TreeNode
@@ -43,7 +45,14 @@ public:
 
 typedef void(UI::* CLICKED)(DWORD_PTR);
 typedef void(UI::* DRAG_DROP)(DWORD_PTR, DWORD_PTR);
+typedef CLICKED KEY_FUNC;
 
+struct tTreeKey
+{
+    KEY eKey;
+    UI* pInst;      //KEY_FUNC 을 가지고 있는 UI
+    KEY_FUNC pFunc;
+};
 
 class TreeUI :
     public UI
@@ -54,6 +63,7 @@ private:
 
     const bool  m_bUseDummyRoot;
     bool        m_bShowDummy;
+    bool        m_bUseFrame;
 
     // Clicked Delegate
     UI*         m_pCInst;
@@ -67,17 +77,27 @@ private:
     UI*         m_pDADInst;
     DRAG_DROP   m_DADFunc;
 
+    // Key Binding Delegate
+    vector<tTreeKey>    m_vecKeyBind;
+
 public:
     virtual void update() override;
     virtual void render_update() override;
 
 public:    
     void ShowDummyRoot(bool _bTrue){m_bShowDummy = _bTrue;}
+    void UseFrame(bool _b) { m_bUseFrame = _b; }
     TreeNode* AddTreeNode(TreeNode* _pParentNode, const string& _strName, DWORD_PTR _dwData = 0);
+    TreeNode* GetDummyNode() { return m_pRootNode; }
 
     void SetClickedDelegate(UI* _pInst, CLICKED _Func){m_pCInst = _pInst; m_CFunc = _Func;}
     void SetDoubleClickedDelegate(UI* _pInst, CLICKED _Func){m_pDBCInst = _pInst;m_DBCFunc = _Func;}
     void SetDragAndDropDelegate(UI* _pInst, DRAG_DROP _Func){m_pDADInst = _pInst;m_DADFunc = _Func;}
+    void SetKeyBinding(KEY _eKey, UI* _pInst, KEY_FUNC _Func);
+    const tTreeKey* GetKeyBinding(KEY _eKey);
+
+
+    void Clear();
 
 private:
     void SetSelectedNode(TreeNode* _pNode);

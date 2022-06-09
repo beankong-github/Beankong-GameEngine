@@ -14,8 +14,8 @@ private:
     DBCLKED         m_DBCEvent;
 
 public:
-    void AddList(const string& _str) {m_vecList.push_back(_str);}
-    void AddList(vector<string>& _vecStr) { m_vecList.insert(m_vecList.cend(), _vecStr.begin(), _vecStr.end()); }
+    void AddToList(const string& _str) {m_vecList.push_back(_str);}
+    void AddToList(vector<string>& _vecStr) { m_vecList.insert(m_vecList.cend(), _vecStr.begin(), _vecStr.end()); }
     void Clear() { m_vecList.clear(); }
 
     void SetDBCEvent(UI* _pUI, DBCLKED _func)

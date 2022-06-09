@@ -20,6 +20,8 @@ CEventMgr::~CEventMgr()
 
 void CEventMgr::update()
 {
+	m_bObjEvent = false;
+
 	// Dead Object 삭제
 	for (size_t i = 0; i < m_vecDead.size(); ++i)
 	{
@@ -31,7 +33,8 @@ void CEventMgr::update()
 			m_vecDead[i]->DisconnectBetweenParent();
 		}
 
-		delete m_vecDead[i];
+		delete m_vecDead[i]; 
+		m_bObjEvent = true;
 	}
 	m_vecDead.clear();
 
@@ -52,6 +55,7 @@ void CEventMgr::update()
 			pCurScene->AddObject(pObj, iLayerIdx);
 
 			pObj->start();
+			m_bObjEvent = true;
 		}
 		break;
 
@@ -94,6 +98,7 @@ void CEventMgr::update()
 			CGameObject* pChild = (CGameObject*)m_vecEvent[i].wParam;
 
 			pParent->AddChild(pChild);
+			m_bObjEvent = true;
 		}
 		break;
 
@@ -142,15 +147,20 @@ void CEventMgr::update()
 		}
 		break;
 
+		case EVENT_TYPE::SCENE_CHANGE:
+		{
+			m_bObjEvent = true;
+		}
+		break;
 		}
 
 
 		// 이벤트 중에 Stage 변경 이벤트가 있었다면,
 		// 나머지 이벤트는 다 무시하고 종료
-		if (bChangeStage)
-		{
-			break;
-		}
+		//if (bChangeStage)
+		//{
+		//	break;
+		//}
 	}
 
 	m_vecEvent.clear();
